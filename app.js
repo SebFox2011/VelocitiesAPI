@@ -22,13 +22,13 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/stations', stationsRouter);
 
-mongoose.connect("mongodb+srv://SebFox:"+process.env.DB_PASSWORD+"@clustersebfox-gdyhp.gcp.mongodb.net/test?retryWrites=true&w=majority",
+/*mongoose.connect("mongodb+srv://SebFox:"+process.env.DB_PASSWORD+"@clustersebfox-gdyhp.gcp.mongodb.net/test?retryWrites=true&w=majority",
     {
         useNewUrlParser:true,
         useUnifiedTopology:true
     })
     .then(() => console.log('Connexion à MongoDB ok'))
-    .catch(() => console.log('Connexion à MongoDB failed'));
+    .catch(() => console.log('Connexion à MongoDB failed'));*/
 
 
 module.exports = app;
