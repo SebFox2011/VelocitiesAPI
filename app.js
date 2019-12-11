@@ -3,13 +3,13 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 require ('dotenv').config();
-const mongoose = require('mongoose');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var stationsRouter = require('./routes/stations');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const stationsRouter = require('./routes/stations');
+const citiesRouter = require ('./routes/cities');
 
-var app = express();
+const app = express();
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -21,14 +21,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/stations', stationsRouter);
-
-/*mongoose.connect("mongodb+srv://SebFox:"+process.env.DB_PASSWORD+"@clustersebfox-gdyhp.gcp.mongodb.net/test?retryWrites=true&w=majority",
-    {
-        useNewUrlParser:true,
-        useUnifiedTopology:true
-    })
-    .then(() => console.log('Connexion à MongoDB ok'))
-    .catch(() => console.log('Connexion à MongoDB failed'));*/
-
+app.use('/cities',citiesRouter);
 
 module.exports = app;

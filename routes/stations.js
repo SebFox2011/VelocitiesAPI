@@ -28,15 +28,8 @@ function getStationParis () {
 }
 
 router.get('/',function (req,res,next){
-    const stuff = [
-        {
-            id:1,
-            name:"Republique"
-        }
-    ];
-    getStationRennes();
-
-    res.status(200).json("Nombre de stations: ")
+    const {db} = req.app.locals;
+    db.collection('stations').find().toArray((err,stations) => res.json(stations))
 });
 
 module.exports=router;
